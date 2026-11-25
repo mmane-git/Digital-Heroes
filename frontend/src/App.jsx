@@ -1,5 +1,6 @@
+import MemberDashboard from "./MemberDashboard";
 import { supabase } from "./lib/supabase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
   Heart,
@@ -44,6 +45,33 @@ export default function App() {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
+  const [user, setUser] = useState(null);
+const [sessionLoading, setSessionLoading] = useState(true);
+
+
+useEffect(() => {
+  supabase.auth.getSession().then(({ data }) => {
+    setUser(data.session?.user ?? null);
+    setSessionLoading(false);
+  });
+
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((_event, session) => {
+    setUser(session?.user ?? null);
+  });
+
+  return () => subscription.unsubscribe();
+}, []);
+
+
+  const handleLogout = async () => {
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    setMessage(error.message);
+  }
+};
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({
@@ -60,6 +88,11 @@ export default function App() {
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        data: {
+          full_name: fullName,
+        },
+      },
     });
   
     if (error) {
@@ -72,6 +105,21 @@ export default function App() {
   
     setBusy(false);
   };
+
+
+if (sessionLoading) {
+  return <div>Loading...</div>;
+}
+
+if (user) {
+  return (
+    <MemberDashboard
+      user={user}
+      onLogout={handleLogout}
+    />
+  );
+}
+
 
   return (
     <div className="min-h-screen bg-[#f8f7f2] text-[#183b2b]">
@@ -461,8 +509,20 @@ export default function App() {
               Be part of a community where your game gives back.
             </p>
 
+            
             <form onSubmit={handleJoin} className="mt-7">
-              <label className="text-sm font-medium">Email address</label>
+             <label className="text-sm font-medium">Full name</label>
+             <input
+              required
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Your full name"
+              className="mt-2 w-full rounded-xl border border-[#183b2b]/15 bg-white px-4 py-3 outline-none transition focus:border-[#183b2b]"
+            />
+
+             <label className="mt-4 block text-sm font-medium">Email address</label>
+
               <input
                 required
                 type="email"
