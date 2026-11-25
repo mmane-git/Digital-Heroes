@@ -1,0 +1,632 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #173b2b;
+  background: #f8f7f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.navbar {
+  height: 82px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e7df;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Manrope, sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.7px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #173b2b;
+  color: white;
+  font-size: 17px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 13px;
+  color: #68766d;
+}
+
+.nav-links a:hover {
+  color: #173b2b;
+}
+
+.nav-cta,
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #173b2b;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.nav-cta:hover,
+.primary-button:hover {
+  background: #28563e;
+  transform: translateY(-2px);
+}
+
+.menu-button {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #173b2b;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+  align-items: center;
+  padding: 75px 7% 85px;
+}
+
+.hero-content {
+  max-width: 570px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #758276;
+}
+
+.eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  background: #d18b4c;
+  border-radius: 50%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Manrope, sans-serif;
+  letter-spacing: -2px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 1.08;
+  margin: 27px 0;
+  font-weight: 700;
+}
+
+.hero h1 span {
+  color: #7e9b7b;
+}
+
+.hero-description {
+  max-width: 440px;
+  color: #6d786f;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.text-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 55px;
+}
+
+.avatar-stack {
+  display: flex;
+}
+
+.avatar-stack span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  margin-right: -7px;
+  border: 2px solid #f8f7f2;
+  border-radius: 50%;
+  background: #dce4d9;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.avatar-stack span:nth-child(2) {
+  background: #e8d7c5;
+}
+
+.avatar-stack span:nth-child(3) {
+  background: #d4d9e3;
+}
+
+.hero-note p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #7b857d;
+}
+
+.hero-note strong {
+  color: #173b2b;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-visual > img {
+  width: 100%;
+  height: 510px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.impact-card {
+  position: absolute;
+  bottom: 28px;
+  left: -35px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 19px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 15px 45px #173b2b18;
+}
+
+.impact-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: #e8efe5;
+  border-radius: 50%;
+  color: #426c4e;
+}
+
+.impact-card div:nth-child(2) {
+  flex: 1;
+}
+
+.impact-card span,
+.impact-card strong {
+  display: block;
+}
+
+.impact-card span {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #849084;
+  margin-bottom: 6px;
+}
+
+.impact-card strong {
+  font-size: 13px;
+}
+
+.floating-label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  display: flex;
+  gap: 12px;
+  padding: 12px 15px;
+  background: #ffffffdd;
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.floating-label span:first-child {
+  color: #b07c4e;
+}
+
+.impact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 32px 7%;
+  background: #e9ede4;
+}
+
+.strip-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #7d8a7c;
+}
+
+.impact-strip h2 {
+  font-size: 17px;
+  letter-spacing: -0.5px;
+  margin: 8px 0 0;
+}
+
+.impact-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #66806a;
+}
+
+.impact-stat strong,
+.impact-stat span {
+  display: block;
+}
+
+.impact-stat strong {
+  font-family: Manrope, sans-serif;
+  color: #173b2b;
+  font-size: 16px;
+}
+
+.impact-stat span {
+  margin-top: 5px;
+  font-size: 10px;
+  color: #7b857d;
+}
+
+.section {
+  padding: 100px 7%;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+
+.section-heading h2,
+.membership-section h2 {
+  font-size: clamp(35px, 4vw, 52px);
+  line-height: 1.15;
+  margin: 18px 0 0;
+}
+
+.section-heading > p {
+  max-width: 350px;
+  color: #778078;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.step-card {
+  padding: 30px;
+  border: 1px solid #e7e6de;
+  border-radius: 7px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  background: #fff;
+}
+
+.step-number {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #b58251;
+}
+
+.step-card h3 {
+  font-size: 21px;
+  letter-spacing: -0.7px;
+  margin: 35px 0 12px;
+}
+
+.step-card p {
+  color: #7a847c;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.charity-section {
+  background: #f0efe8;
+}
+
+.charity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.charity-card {
+  background: #fff;
+  border-radius: 7px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.charity-card:hover {
+  transform: translateY(-5px);
+}
+
+.charity-card > img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.charity-content {
+  padding: 25px;
+}
+
+.charity-category {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #a47a4c;
+  font-weight: 700;
+}
+
+.charity-content h3 {
+  font-size: 22px;
+  letter-spacing: -0.7px;
+  margin: 13px 0;
+}
+
+.charity-content p {
+  color: #7a847c;
+  font-size: 12px;
+  line-height: 1.8;
+  min-height: 45px;
+}
+
+.charity-content a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.membership-section {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 10%;
+  align-items: center;
+  padding: 100px 7%;
+}
+
+.membership-section > div:first-child > p {
+  max-width: 380px;
+  color: #778078;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 25px;
+}
+
+.membership-card {
+  padding: 40px;
+  background: #173b2b;
+  color: white;
+  border-radius: 8px;
+}
+
+.membership-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #b9cbb9;
+}
+
+.membership-card h3 {
+  font-size: 28px;
+  letter-spacing: -1px;
+  margin: 30px 0 12px;
+}
+
+.membership-card p {
+  font-size: 13px;
+  color: #c4d0c5;
+  margin-bottom: 25px;
+}
+
+.membership-card .primary-button {
+  background: #e5eadf;
+  color: #173b2b;
+}
+
+.membership-footnote {
+  display: block;
+  font-size: 10px;
+  color: #b9cbb9;
+  margin-top: 20px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 7%;
+  border-top: 1px solid #e8e7df;
+}
+
+.footer > span {
+  font-size: 10px;
+  color: #879087;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .hero {
+    padding-top: 50px;
+  }
+
+  .hero-visual > img {
+    height: 420px;
+  }
+
+  .impact-strip {
+    flex-wrap: wrap;
+  }
+
+  .impact-strip > div {
+    width: 45%;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    height: 70px;
+    padding: 0 5%;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 70px;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: #f8f7f2;
+    border-bottom: 1px solid #e8e7df;
+    flex-direction: column;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 50px 5%;
+    gap: 40px;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+  }
+
+  .hero-visual > img {
+    height: 360px;
+  }
+
+  .impact-card {
+    left: 10px;
+    right: 10px;
+    bottom: 15px;
+  }
+
+  .impact-strip {
+    padding: 30px 5%;
+  }
+
+  .impact-strip > div {
+    width: 100%;
+  }
+
+  .section {
+    padding: 70px 5%;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .steps-grid,
+  .charity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charity-card > img {
+    height: 240px;
+  }
+
+  .membership-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 70px 5%;
+  }
+
+  .membership-card {
+    padding: 30px;
+  }
+
+  .footer {
+    padding: 25px 5%;
+    gap: 20px;
+    flex-direction: column;
+    align-items: start;
+  }
+}
