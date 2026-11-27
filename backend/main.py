@@ -71,11 +71,18 @@ def get_supabase_user(access_token: str) -> dict:
             detail="Could not verify your login with Supabase.",
         )
 
+    
     if response.status_code != 200:
+        logger.error(
+            "Supabase auth rejected token: status=%s body=%s",
+            response.status_code,
+            response.text[:500],
+        )
         raise HTTPException(
             status_code=401,
             detail="Your login session is invalid or expired.",
         )
+
 
     return response.json()
 
