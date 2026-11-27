@@ -53,7 +53,7 @@ def required_env(name: str) -> str:
 
 def get_supabase_user(access_token: str) -> dict:
     supabase_url = required_env("SUPABASE_URL").rstrip("/")
-    anon_key = required_env("SUPABASE_ANON_KEY")
+    anon_key = required_env("SUPABASE_SERVICE_ROLE_KEY")
 
     try:
         response = requests.get(
