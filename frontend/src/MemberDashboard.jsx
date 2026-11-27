@@ -49,7 +49,7 @@ export default function MemberDashboard({ user, onLogout }) {
   const [editingId, setEditingId] = useState(null);
 
 
-  const apiBase = (import.meta.env.VITE_API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
+  const apiBase = "https://digital-heroes-backend-lake.vercel.app";
 
   const refreshMembership = useCallback(async () => {
     const { data: authData, error: authError } = await supabase.auth.getSession();
